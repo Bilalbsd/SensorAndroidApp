@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SensorAndroidApp</string>
+    <string name="sensor_presence">Capteurs disponibles</string>
+    <string name="sensor_absence">Capteurs indisponibles</string>
+    <string name="sensor_list">Liste des capteurs</string>
+    <string name="sensors_list_btn">Liste des capteurs</string>
+    <string name="sensors_present">Capteurs présents</string>
+    <string name="sensors_absents">Capteurs absents</string>
 </resources>
