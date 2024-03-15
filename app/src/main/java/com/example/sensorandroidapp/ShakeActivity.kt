@@ -1,4 +1,5 @@
 package com.example.sensorandroidapp
+
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -8,6 +9,7 @@ import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class ShakeActivity : AppCompatActivity() {
@@ -21,6 +23,8 @@ class ShakeActivity : AppCompatActivity() {
     private var torchMode = false
     private lateinit var sensorManager: SensorManager
     private lateinit var accelerometer: Sensor
+    private lateinit var camManager: CameraManager
+
     private val sel = object : SensorEventListener {
         override fun onSensorChanged(sensorEvent: SensorEvent) {
             if (reliable && sensorEvent.sensor.type == Sensor.TYPE_ACCELEROMETER) {
@@ -58,6 +62,7 @@ class ShakeActivity : AppCompatActivity() {
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)!!
 
+        camManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
 
         val supported = sensorManager.registerListener(sel, accelerometer, SensorManager.SENSOR_DELAY_UI)
         if (!supported) {
@@ -67,16 +72,17 @@ class ShakeActivity : AppCompatActivity() {
 
     private fun toggleTorchMode() {
         torchMode = !torchMode
-        val handler = Handler()
-        val camManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
-        handler.post {
-            try {
-                val cameraId = camManager.cameraIdList[0]
-                camManager.setTorchMode(cameraId, torchMode)
-            } catch (e: CameraAccessException) {
-                e.printStackTrace()
-            }
+        try {
+            val cameraId = camManager.cameraIdList[0]
+            camManager.setTorchMode(cameraId, torchMode)
+            showToast("Flashlight: $torchMode")
+        } catch (e: CameraAccessException) {
+            e.printStackTrace()
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {

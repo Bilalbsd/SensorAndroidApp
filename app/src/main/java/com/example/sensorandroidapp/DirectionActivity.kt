@@ -38,12 +38,12 @@ class DirectionActivity : AppCompatActivity() {
                         magnitude > THRESHOLD_VAL -> {
                             val maxAbsId = getMaxAbsoluteValueId(sensorEvent.values)
                             when (maxAbsId) {
-                                0 -> if (sensorEvent.values[maxAbsId] > 0) "➡" else "⬅"
-                                1 -> if (sensorEvent.values[maxAbsId] > 0) "⬆" else "⬇"
+                                0 -> if (sensorEvent.values[maxAbsId] > 0) "►" else "◄"
+                                1 -> if (sensorEvent.values[maxAbsId] > 0) "▲" else "▼"
                                 else -> if (sensorEvent.values[maxAbsId] > 0) "⤵" else "⤴"
                             }
                         }
-                        else -> "❌"
+                        else -> "∅"
                     }
                 }
             }

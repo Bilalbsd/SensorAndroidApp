@@ -4,21 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShakeActivity">
+    tools:context=".ProximityActivity">
 
     <TextView
-        android:id="@+id/shake_instruction_text"
-        android:layout_width="344dp"
-        android:layout_height="49dp"
-        android:text="@string/shake_instruction"
-        android:textAlignment="center"
-        android:textSize="18sp"
+        android:id="@+id/title_shake_proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/shake_proximity"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/state_proximity"
+        android:layout_width="312dp"
+        android:layout_height="278dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
+        app:srcCompat="@drawable/zoom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

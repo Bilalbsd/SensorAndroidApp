@@ -6,4 +6,10 @@
     <string name="sensors_list_btn">Liste des capteurs</string>
     <string name="sensors_present">Capteurs présents</string>
     <string name="sensors_absents">Capteurs absents</string>
+    <string name="accelerometer_title">Accéléromètre</string>
+    <string name="direction_title">Direction</string>
+    <string name="proximity_title" />
+    <string name="shake_proximity">Proximité</string>
+    <string name="shake_instruction">Secouez votre appareil pour activer/désactiver la lampe de poche !</string>
+    <string name="position">"Position : "</string>
 </resources>

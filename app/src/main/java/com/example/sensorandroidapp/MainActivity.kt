@@ -16,10 +16,20 @@ class MainActivity : AppCompatActivity() {
         val sensorListBtn = findViewById<Button>(R.id.sensor_list_btn)
         val sensorPresenceBtn = findViewById<Button>(R.id.sensor_list_presence)
         val sensorAbsenceBtn = findViewById<Button>(R.id.sensor_list_absence)
+        val accelerometerBtn = findViewById<Button>(R.id.accelerometer_btn)
+        val directionBtn = findViewById<Button>(R.id.direction_btn)
+        val shakeBtn = findViewById<Button>(R.id.shake_btn)
+        val proximityBtn = findViewById<Button>(R.id.proximity_btn)
+        val geolocationBtn = findViewById<Button>(R.id.geolocation_btn)
 
         sensorListBtn.setOnClickListener { launchActivity(SensorListActivity::class.java, 0) }
         sensorPresenceBtn.setOnClickListener { launchActivity(SensorDisponibilityActivity::class.java, SensorDisponibilityActivity.SENSOR_PRESENCE) }
         sensorAbsenceBtn.setOnClickListener { launchActivity(SensorDisponibilityActivity::class.java, SensorDisponibilityActivity.SENSOR_ABSENCE) }
+        accelerometerBtn.setOnClickListener { launchActivity(AccelerometerActivity::class.java, 0) }
+        directionBtn.setOnClickListener { launchActivity(DirectionActivity::class.java, 0) }
+        shakeBtn.setOnClickListener { launchActivity(ShakeActivity::class.java, 0) }
+        proximityBtn.setOnClickListener { launchActivity(ProximityActivity::class.java, 0) }
+        geolocationBtn.setOnClickListener { launchActivity(GeolocationActivity::class.java, 0) }
 
         requestLocationPermissions()
     }
